@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>nice</title>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        #form-box{
+            position: absolute;
+            margin-top: 140px;
+            border: 1px solid;
+            width: 450px;
+            height: 300px;
+            margin-left: 150px;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>nice</h1>
+    </div>
+        <div id="form-box">
+            <form action="/register" method="post">
+                请输入账号<input type="text" name="bbsUserName"  id="bbs-user-account" /><br>
+                请输入密码<input type="password" name="bbsUserPassword" ><br>
+                请再次输入密码<input type="password" name="bbsUserRepeatInputPassword"><br>
+                请输入邮箱地址<input type="email" name="bbsUserEmail"><br>
+                性别<input type="text" name="bbsUserGender"><br>
+                出生日期<input type="date" name="bbsUserBirth"><br>
+                用户手机<input type="text" name="bbsUserMobile"><br>
+                用户真实姓名<input type="text" name="bbsUserRealName"><br>
+                家庭住址<input type="text" name="bbsUserAddress"><br>
+                <input type="submit" value="注册" ><br>
+            </form>
+            <li>已有账号，请直接<a href="/login/index">登录</a></li>
+        </div>
+    <script th:src="@{/js/jquery-3.4.1.min.js}" ></script>
+    <script th:src="@{/js/bootstrap.min.js}" ></script>
+    <script>
+        // alert(1);
+        $('#bbs-user-account').blur(function () {
+            var bbsUserName = $('#bbs-user-account').val();
+            // alert(1);
+            // alert(bbsUserName)
+            $.ajax({
+                url:'/check/user/is/exist',
+                type:'get',
+                data:'bbsUserName='+bbsUserName,
+                success:function (data) {
+                    if (data=='true') {
+                        $('#bbs-user-account').append('<li>用户已存在</li>')
+                    }
+                    else {
+                        $('#bbs-user-account').append('<li>用户不存在,可以注册</li>')
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>

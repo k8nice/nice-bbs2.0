@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nice.mapper.BbsUserMapper">
+    <!-- 通用sql,所有字段 -->
+    <sql id="allLine">
+        (bbs_user_id,bbs_user_name,bbs_user_password,
+        bbs_user_real_name,bbs_user_address,bbs_user_gender,bbs_user_mobile,
+        bbs_user_birth,bbs_user_email,bbs_user_create_date,bbs_user_modify_date,bbs_user_is_activate,bbs_user_is_lock,salt)
+    </sql>
+    <!-- 添加一个bbs用户 -->
+    <insert id="addBbsUser" parameterType="com.nice.domain.BbsUser">
+        insert into bbs_user
+        <include refid="allLine"></include>
+         values(#{bbsUserId},#{bbsUserName},#{bbsUserPassword}
+        ,#{bbsUserRealName},#{bbsUserAddress},#{bbsUserGender},#{bbsUserMobile},
+        #{bbsUserBirth},#{bbsUserEmail},#{bbsUserCreateDate},#{bbsUserModifyDate},#{bbsUserIsActivate}
+        ,#{bbsUserIsLock},#{salt});
+    </insert>
+    <select id="queryBbsUserNameByBbsUserName" resultType="java.lang.String">
+        select bbs_user_name from bbs_user where  bbs_user_name=#{bbsUserName};
+    </select>
+    <select id="queryBbsUserPasswordByBbsUserName" resultType="java.lang.String">
+        select bbs_user_password from bbs_user where bbs_user_name=#{bbsUserName}
+    </select>
+</mapper>
+
+<!--        bbs_user_id,bbs_user_name,bbs_user_email,-->
+<!--        bbs_user_create_date,bbs_user_update_date,bbs_user_password,bbs_user_is_activate,salt,lock-->
