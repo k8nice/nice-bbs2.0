@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
     @Override
-    public String loginBbsUser(String bbsUserName, String bbsUserPassword) {
+    public Boolean loginBbsUser(String bbsUserName, String bbsUserPassword) {
         return null;
     }
 }
