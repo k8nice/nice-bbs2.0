@@ -27,10 +27,10 @@ public interface BbsUserMapper {
     String queryBbsUserNameByBbsUserName(String bbsUserName);
 
     /**
-     * 根据bbs用户名查找bbs用户密码
+     * 根据bbs用户名查找bbs用户密码和盐值
      * @param bbsUserName
      * @return  bbsUserPassword
      */
-    String queryBbsUserPasswordByBbsUserName(String bbsUserName);
+    BbsUser queryBbsUserPasswordAndSaltByBbsUserName(String bbsUserName);
 
 }

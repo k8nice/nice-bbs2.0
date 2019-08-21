@@ -21,8 +21,8 @@
     <select id="queryBbsUserNameByBbsUserName" resultType="java.lang.String">
         select bbs_user_name from bbs_user where  bbs_user_name=#{bbsUserName};
     </select>
-    <select id="queryBbsUserPasswordByBbsUserName" resultType="java.lang.String">
-        select bbs_user_password from bbs_user where bbs_user_name=#{bbsUserName}
+    <select id="queryBbsUserPasswordAndSaltByBbsUserName" resultType="com.nice.domain.BbsUser">
+        select bbs_user_password,salt from bbs_user where bbs_user_name=#{bbsUserName}
     </select>
 </mapper>
 
