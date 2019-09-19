@@ -1,6 +1,6 @@
 package com.nice.bak;
 
-import com.nice.commons.Md5Utils;
+import com.nice.commons.aes.Md5Utils;
 import com.nice.domain.BbsUser;
 import com.nice.mapper.BbsUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.nice.service.impl;
 
-import com.nice.commons.Md5Utils;
+import com.nice.commons.aes.Md5Utils;
 import com.nice.domain.BbsUser;
 import com.nice.mapper.BbsUserMapper;
 import com.nice.service.RegisterService;
@@ -19,6 +19,11 @@ public class RegisterServiceImpl implements RegisterService {
     @Autowired
     private BbsUserMapper bbsUserMapper;
 
+    /**
+     * 添加用户
+     * @param bbsUser
+     * @return
+     */
     @Override
     public String addBbsUserService(BbsUser bbsUser) {
         //判断两次输入密码是否一致
@@ -43,6 +48,11 @@ public class RegisterServiceImpl implements RegisterService {
         return "success";
     }
 
+    /**
+     * 检查用户是否存在
+     * @param bbsUserName
+     * @return
+     */
     @Override
     public Boolean checkBbsUserIsExist(String bbsUserName) {
         String bbsUserName1 = bbsUserMapper.queryBbsUserNameByBbsUserName(bbsUserName);

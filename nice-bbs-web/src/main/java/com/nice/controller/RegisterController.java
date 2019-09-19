@@ -18,6 +18,11 @@ public class RegisterController {
     @Autowired
     private RegisterService registerService;
 
+    @GetMapping("/register/index")
+    public String registerPage(){
+        return "register";
+    }
+
     /**
      * 注册用户
      * @param bbsUser

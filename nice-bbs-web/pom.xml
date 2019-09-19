@@ -21,6 +21,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.nice</groupId>
+            <artifactId>nice-bbs-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
@@ -50,6 +55,16 @@
             <version>1.0-RELEASE</version>
             <scope>compile</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.servicemesh.agility-platform-sdk</groupId>-->
+<!--            <artifactId>httpcore-nio</artifactId>-->
+<!--            <version>4.4.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>io.buoyant</groupId>-->
+<!--            <artifactId>k8s_2.12</artifactId>-->
+<!--            <version>1.6.3</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <repositories>

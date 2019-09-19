@@ -1,4 +1,4 @@
-package com.nice.commons;
+package com.nice.commons.aes;
 
 
 import com.alibaba.fastjson.JSON;
