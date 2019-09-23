@@ -22,7 +22,7 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private BbsUserMapper bbsUserMapper;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Logger.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginServiceImpl.class);
 
     /**
      * 登录用户
@@ -34,7 +34,12 @@ public class LoginServiceImpl implements LoginService {
     public Boolean loginBbsUser(String bbsUserName, String bbsUserPassword) {
         //根据用户名取出密码和盐值
         BbsUser bbsUser = bbsUserMapper.queryBbsUserPasswordAndSaltByBbsUserName(bbsUserName);
-        String salt = bbsUser.getSalt();
+        String salt = null ;
+        try {
+             salt = bbsUser.getSalt();
+        } catch (NullPointerException exception) {
+            LOGGER.error("发生空指针，堆栈信息为{}",exception.getStackTrace());
+        }
         String bbsUserPassword1 = Md5Utils.getMd5Password(bbsUserPassword,salt);
         if (bbsUserPassword1.equals(bbsUser.getBbsUserPassword())){
             LOGGER.info("{}的密码验证通过",bbsUserName);

@@ -23,8 +23,8 @@
         select bbs_user_name from bbs_user where  bbs_user_name=#{bbsUserName};
     </select>
     <!-- 根据用户名取出密码和盐值 -->
-    <select id="queryBbsUserPasswordAndSaltByBbsUserName" resultType="com.nice.domain.BbsUser">
-        select bbs_user_password  as bbsUserPassword,salt as salt from bbs_user where bbs_user_name=#{bbsUserName}
+    <select id="queryBbsUserPasswordAndSaltByBbsUserName" resultType="com.nice.domain.BbsUser" >
+        select bbs_user_password  as bbsUserPassword,salt as salt from bbs_user where bbs_user_name=#{bbsUserName};
     </select>
 </mapper>
 
