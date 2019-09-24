@@ -43,6 +43,7 @@
             <version>0.0.1-RELEASE</version>
         </dependency>
 
+        <!-- 工具类 -->
         <dependency>
             <groupId>com.nice</groupId>
             <artifactId>nice-bbs-common</artifactId>
@@ -50,6 +51,7 @@
         </dependency>
     </dependencies>
 
+    <!-- maven配置 -->
     <repositories>
         <repository>
             <id>nexus</id>

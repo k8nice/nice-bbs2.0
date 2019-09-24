@@ -4,12 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <title>主页面</title>
-
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+    <style type="text/css" rel="stylesheet">
+        li{
+            list-style: none;
+        }
+        body{
+            background-color: #3c763d;
+            position: absolute;
+        }
+        /* 用户登录信息的样式 */
+        #bbs-user-information{
+            position: absolute;
+            margin-left: 500px;
+            margin-top: 1px;
+            width: 400px;
+        }
+        /* 主标题样式 */
+        #bbs-main-title-box{
+            position: absolute;
+            width: 400px;
+            color: #985f0d;
+        }
+        /* 帖子相关标题样式 */
+        #bbs-invitation-title{
+            color: #31b0d5;
+            font-size: 30px;
+        }
+    </style>
 </head>
 <body>
-<div>
+<!-- 主标题 -->
+<div id="bbs-main-title-box">
+    <h1>nice论坛</h1>
+</div>
+<!-- 个人登录信息 -->
+<div id="bbs-user-information">
     <ul>
-        <li>当前登录的用户是:<span th:text="${bbsUser.bbsUserName}"></span></li>
+        <li>当前登录的用户是:<a href="#"><span th:text="${bbsUser.bbsUserName}"></span></a>&nbsp;&nbsp;<a href="#">退出登录</a></li>
+    </ul>
+</div>
+</br></br></br></br></br></br></br>
+<!-- 帖子相关标题 -->
+<div id="bbs-invitation-title">
+    <ul>
+        <li>创建帖子</li>
+        <li>管理帖子</li>
+        <li>查看回复</li>
     </ul>
 </div>
 </body>

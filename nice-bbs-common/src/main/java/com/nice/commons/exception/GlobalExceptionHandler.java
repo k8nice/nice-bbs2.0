@@ -16,6 +16,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+/**
+ * 全局异常处理
+ * @author ningh
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
