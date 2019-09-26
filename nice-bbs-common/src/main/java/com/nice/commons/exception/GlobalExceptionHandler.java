@@ -27,17 +27,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(CustomException.class)
-    public ErrorResponseEntiry customExceptionHandler(HttpServletRequest request, final Exception e, HttpServletResponse response){
+    public ErrorResponseEntity customExceptionHandler(HttpServletRequest request, final Exception e, HttpServletResponse response){
         response.setStatus(HttpStatus.BAD_REQUEST.value());
         CustomException exception = (CustomException) e;
-        return new  ErrorResponseEntiry(exception.getCode(),exception.getMessage());
+        return new  ErrorResponseEntity(exception.getCode(),exception.getMessage());
     }
 
     @ExceptionHandler(RuntimeException.class)
-    public ErrorResponseEntiry runtimeExceptionHandler(HttpServletRequest request, final Exception e, HttpServletResponse response){
+    public ErrorResponseEntity runtimeExceptionHandler(HttpServletRequest request, final Exception e, HttpServletResponse response){
         response.setStatus(HttpStatus.BAD_REQUEST.value());
         RuntimeException exception = (RuntimeException) e;
-        return new ErrorResponseEntiry(400,exception.getMessage());
+        return new ErrorResponseEntity(400,exception.getMessage());
     }
 
     @Override
@@ -45,28 +45,28 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                              HttpStatus status, WebRequest request) {
         if (ex instanceof MethodArgumentNotValidException) {
             MethodArgumentNotValidException exception = (MethodArgumentNotValidException) ex;
-            return new ResponseEntity<> (new ErrorResponseEntiry(status.value(),exception.getBindingResult().getAllErrors().get(0).getDefaultMessage()),status);
+            return new ResponseEntity<> (new ErrorResponseEntity(status.value(),exception.getBindingResult().getAllErrors().get(0).getDefaultMessage()),status);
         }
 
         if (ex instanceof MethodArgumentTypeMismatchException) {
             MethodArgumentTypeMismatchException exception = (MethodArgumentTypeMismatchException) ex;
             LOGGER.error("参数转换失败,方法:" + exception.getParameter().getMethod().getName() + ",参数:" + exception.getName() + ",信息: " + exception.getLocalizedMessage());
-            return new ResponseEntity<> (new ErrorResponseEntiry(status.value(),"参数转换失败"),status);
+            return new ResponseEntity<> (new ErrorResponseEntity(status.value(),"参数转换失败"),status);
         }
 
         if (ex instanceof NullPointerException) {
             NullPointerException exception = (NullPointerException) ex;
             LOGGER.error("参数出现空指针,信息:" + exception.getLocalizedMessage());
-            return new ResponseEntity<>(new ErrorResponseEntiry(status.value(),"参数空指针"),status);
+            return new ResponseEntity<>(new ErrorResponseEntity(status.value(),"参数空指针"),status);
         }
 
         if (ex instanceof HttpMessageNotWritableException) {
             HttpMessageNotWritableException exception = (HttpMessageNotWritableException) ex;
             LOGGER.error("参数转换为json失败,方法:" + exception.getLocalizedMessage());
-            return new ResponseEntity<>(new ErrorResponseEntiry(status.value(),"参数有误"),status);
+            return new ResponseEntity<>(new ErrorResponseEntity(status.value(),"参数有误"),status);
         }
 
 
-        return new ResponseEntity<>(new ErrorResponseEntiry(status.value(),"参数转换失败"),status);
+        return new ResponseEntity<>(new ErrorResponseEntity(status.value(),"参数转换失败"),status);
     }
 }
