@@ -46,7 +46,7 @@ public class CharsetConfig extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
         //放行注册路径和登录路径
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns( "/", "/login/index","/js/**","/css/**","/register/index","/register","/login/auth");
+                .excludePathPatterns( "/", "/login/index","/js/**","/css/**","/kindeditor/**","/register/index","/register","/login/auth","/static/**");
         //  registry.addInterceptor(new LoginHandlerInterceptor()).excludePathPatterns("/");
 //        registry.addInterceptor(new LoginHandlerInterceptor()).excludePathPatterns();
         super.addInterceptors(registry);
@@ -64,5 +64,16 @@ public class CharsetConfig extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         super.addResourceHandlers(registry);
     }
+
+    @Override
+    protected void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowCredentials(true)
+                .allowedMethods("GET","POST")
+                .maxAge(3600);
+        super.addCorsMappings(registry);
+    }
+
 
 }

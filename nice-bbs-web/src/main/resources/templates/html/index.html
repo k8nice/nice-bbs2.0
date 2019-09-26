@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>主页面</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.css}" />
     <style type="text/css" rel="stylesheet">
         li{
             list-style: none;
@@ -16,7 +16,7 @@
         /* 用户登录信息的样式 */
         #bbs-user-information{
             position: absolute;
-            margin-left: 500px;
+            margin-left: 800px;
             margin-top: 1px;
             width: 400px;
         }
@@ -30,27 +30,74 @@
         #bbs-invitation-title{
             color: #31b0d5;
             font-size: 30px;
+            position: absolute;
+            margin-top: 150px;
+            width: 200px;
+        }
+        #bbs-invitation-title ul>li{
+            padding-top: 10px;
+        }
+        /*主菜单*/
+        #bbs-main-menu{
+            position: absolute;
+            margin-top: 40px;
+            margin-left: 300px;
+            width: 800px;
+            height: 200px;
+            font-size: 20px;
+            color: #9a9afb;
+        }
+
+        #bbs-main-menu ul > li{
+            float: left;
+            padding-left: 50px;
+        }
+        /*  论坛介绍样式*/
+        #bbs-main-introduce{
+            position: absolute;
+            margin-top: 50px;
+            width: 400px;
+            font-size: 12px;
+            color: #761c19;
         }
     </style>
 </head>
 <body>
 <!-- 主标题 -->
 <div id="bbs-main-title-box">
-    <h1>nice论坛</h1>
+    <h1><i>nice论坛</i></h1>
 </div>
 <!-- 个人登录信息 -->
 <div id="bbs-user-information">
     <ul>
-        <li>当前登录的用户是:<a href="#"><span th:text="${bbsUser.bbsUserName}"></span></a>&nbsp;&nbsp;<a href="#">退出登录</a></li>
+        <li><b>当前登录的用户是:<a href="#"><span th:text="${bbsUser.bbsUserName}"></span></a>&nbsp; <a>修改个人信息</a>&nbsp;&nbsp;<a href="#">退出登录</a></b></li>
     </ul>
 </div>
-</br></br></br></br></br></br></br>
+
+<div id="bbs-main-introduce">
+    <h3>一个专业的IT技术交流平台</h3>
+</div>
+
+<div id="bbs-main-menu">
+    <ul>
+        <li><a href="/index">论坛首页</a></li>
+        <li><a href="#">分类管理</a></li>
+        <li><a href="#">排行榜</a></li>
+        <li><a href="#">论坛规则</a></li>
+        <li><a href="#">关于我们</a></li>
+    </ul>
+</div>
+<br/><br/><br/><br/>
 <!-- 帖子相关标题 -->
 <div id="bbs-invitation-title">
     <ul>
-        <li>创建帖子</li>
+        <li><a href="/invitation/add/page">创建帖子</a></li>
         <li>管理帖子</li>
         <li>查看回复</li>
+        <li>回复我的</li>
+        <li>我感兴趣的</li>
+        <li>关注我的</li>
+        <li>我的积分</li>
     </ul>
 </div>
 </body>

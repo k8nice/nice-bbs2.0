@@ -15,7 +15,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object user = request.getSession().getAttribute("USER");
-        if (request.getMethod() == "put" || request.getMethod() == "delete")
+        if ((request.getMethod()).equalsIgnoreCase("put") || (request.getMethod()).equals("delete"))
         {
             response.setStatus(405);
         }

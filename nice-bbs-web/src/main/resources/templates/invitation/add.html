@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新建帖子</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.css}" />
+    <style type="text/css" rel="stylesheet">
+        li{
+            list-style: none;
+        }
+        body{
+            /*背景色*/
+            background-color: #3c763d;
+            position: absolute;
+        }
+        /* 用户登录信息的样式 */
+        #bbs-user-information{
+            position: absolute;
+            margin-left: 800px;
+            margin-top: 1px;
+            width: 400px;
+        }
+        /*新建帖子四个字的样式*/
+        #indivation-box-title{
+            color: #31b0d5;
+        }
+    </style>
+</head>
+<body>
+        <!-- 个人登录信息 -->
+        <div id="bbs-user-information">
+            <ul>
+                <li><b>当前登录的用户是:<a href="#"><span th:text="${bbsUser.bbsUserName}"></span></a>&nbsp; <a>修改个人信息</a>&nbsp;&nbsp;<a href="#">退出登录</a></b></li>
+            </ul>
+        </div>
+        <div id="invidation-box">
+            <div id="indivation-box-title">
+                <h1><i><b>新建帖子</b></i></h1><hr/>
+            </div>
+                请输入帖子标题:&nbsp;<input type="text" value="请输入帖子标题"><br/>
+                <textarea id="editor_id" name="content" style="width:700px;height:300px;">
+                    &lt;strong&gt;请输入内容&lt;/strong&gt;
+                </textarea>
+                <br/>
+                    <b>帖子分类</b>
+                    <select id="invidation-type">
+                        <option>java</option>
+                        <option>c</option>
+                        <option>c++</option>
+                    </select>
+
+                    <br/><br/>
+                <b>添加邀请人</b>
+                <br/><br/><br/>
+                <button>提交</button>
+        </div>
+
+        <script th:src="@{/static/js/jquery-3.4.1.min.js}" ></script>
+        <script th:src="@{/static/js/bootstrap.min.js}" ></script>
+        <script charset="UTF-8" th:src="@{/static/kindeditor/kindeditor-all-min.js}" ></script>
+        <script charset="UTF-8" th:src="@{/static/kindeditor/lang/zh-CN.js}" ></script>
+        <script type="text/javascript" >
+            KindEditor.ready(function(K) {
+                window.editor = K.create('#editor_id');
+            });
+    </script>
+</body>
+</html>
