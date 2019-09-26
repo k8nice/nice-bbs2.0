@@ -15,21 +15,21 @@ public interface BbsUserMapper {
 
     /**
      * 添加bbs用户
-     * @param bbsUser
+     * @param bbsUser bbs用户类
      */
     void addBbsUser(BbsUser bbsUser);
 
     /**
      * 根据bbs用户名查找bbs用户名
-     * @param bbsUserName
-     * @return  bbsUserName
+     * @param bbsUserName bbs用户名
+     * @return  bbsUserName bbs用户名
      */
     String queryBbsUserNameByBbsUserName(String bbsUserName);
 
     /**
      * 根据bbs用户名查找bbs用户密码和盐值
-     * @param bbsUserName
-     * @return  bbsUserPassword
+     * @param bbsUserName bbs用户名
+     * @return  bbsUserPassword bbs用户密码
      */
     BbsUser queryBbsUserPasswordAndSaltByBbsUserName(String bbsUserName);
 

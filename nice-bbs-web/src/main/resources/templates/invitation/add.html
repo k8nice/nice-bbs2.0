@@ -1,3 +1,4 @@
+<!-- 新建帖子 -->
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
@@ -38,12 +39,15 @@
             <div id="indivation-box-title">
                 <h1><i><b>新建帖子</b></i></h1><hr/>
             </div>
+                <!-- 帖子标题 -->
                 请输入帖子标题:&nbsp;<input type="text" value="请输入帖子标题"><br/>
+                <!-- 富文本编辑器 -->
                 <textarea id="editor_id" name="content" style="width:700px;height:300px;">
                     &lt;strong&gt;请输入内容&lt;/strong&gt;
                 </textarea>
                 <br/>
-                    <b>帖子分类</b>
+                    <!-- 帖子类型 -->
+                    <b>帖子类型</b>
                     <select id="invidation-type">
                         <option>java</option>
                         <option>c</option>
@@ -55,12 +59,13 @@
                 <br/><br/><br/>
                 <button>提交</button>
         </div>
-
+        <!-- jquery,bootstrap,富文本编辑器的js引入 -->
         <script th:src="@{/static/js/jquery-3.4.1.min.js}" ></script>
         <script th:src="@{/static/js/bootstrap.min.js}" ></script>
         <script charset="UTF-8" th:src="@{/static/kindeditor/kindeditor-all-min.js}" ></script>
         <script charset="UTF-8" th:src="@{/static/kindeditor/lang/zh-CN.js}" ></script>
         <script type="text/javascript" >
+            //创建富文本编辑器
             KindEditor.ready(function(K) {
                 window.editor = K.create('#editor_id');
             });
