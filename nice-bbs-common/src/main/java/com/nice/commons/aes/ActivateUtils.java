@@ -21,7 +21,14 @@ import java.util.Map;
 public class ActivateUtils {
 
 
-
+    /**
+     * 创建jwt加密token
+     * @param id
+     * @param subject
+     * @param ttlMillis
+     * @return
+     * @throws Exception
+     */
     public static String createJWT(String id, String subject, long ttlMillis) throws Exception {
         //指定签名的时候使用的签名算法
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
