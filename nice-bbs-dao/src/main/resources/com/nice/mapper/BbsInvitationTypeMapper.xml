@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nice.mapper.BbsInvitationTypeMapper">
+
+    <select id="queryBbsInvitationTypeAll" resultType="java.lang.String">
+        select bbs_invitation_type_name from bbs_invitation_type;
+    </select>
+</mapper>

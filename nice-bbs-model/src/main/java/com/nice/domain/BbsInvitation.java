@@ -28,9 +28,9 @@ public class BbsInvitation {
     private String bbsInvitationContent;
 
     /**
-     * 帖子类型
+     * 帖子类型id
      */
-    private String bbsInvitationType;
+    private String bbsInvitationTypeId;
 
     /**
      * 帖子创建时间

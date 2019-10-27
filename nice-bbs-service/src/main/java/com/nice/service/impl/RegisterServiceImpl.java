@@ -11,17 +11,21 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
+ * 注册服务接口实现类
  * @author ningh
  */
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
+    /**
+     * 注入mapper接口
+     */
     @Autowired
     private BbsUserMapper bbsUserMapper;
 
     /**
      * 添加用户
-     * @param bbsUser
+     * @param bbsUser bbs用户
      * @return
      */
     @Override

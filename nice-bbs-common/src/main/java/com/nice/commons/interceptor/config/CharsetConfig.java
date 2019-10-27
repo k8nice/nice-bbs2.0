@@ -46,7 +46,7 @@ public class CharsetConfig extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
         //放行注册路径和登录路径
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns( "/", "/login/index","/js/**","/css/**","/kindeditor/**","/register/index","/register","/login/auth","/static/**");
+                .excludePathPatterns( "/", "/login/index","/js/**","/css/**","/kindeditor/**","/register/index","/register","/login/auth","/static/**","/bootstrap-3.3.7-dist/**");
         //  registry.addInterceptor(new LoginHandlerInterceptor()).excludePathPatterns("/");
 //        registry.addInterceptor(new LoginHandlerInterceptor()).excludePathPatterns();
         super.addInterceptors(registry);

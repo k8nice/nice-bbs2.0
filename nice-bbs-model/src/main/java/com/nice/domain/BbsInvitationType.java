@@ -32,4 +32,14 @@ public class BbsInvitationType implements Serializable {
      */
     private Date bbsInvitationTypeModifyDate;
 
+    /**
+     * bbs帖子类型备注
+     */
+    private String bbsInvitationTypeRemark;
+
+    /**
+     * 用户id（创建人）
+     */
+    private Long bbsUserId;
+
 }

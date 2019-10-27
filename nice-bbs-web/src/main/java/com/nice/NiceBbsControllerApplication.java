@@ -12,7 +12,7 @@ public class NiceBbsControllerApplication {
 
     /**
      * 主函数
-     * @param args
+     * @param args 参数
      */
     public static void main(String[] args) {
         SpringApplication.run(NiceBbsControllerApplication.class, args);

@@ -28,7 +28,9 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-
+    /**
+     * 日志
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
     /**
